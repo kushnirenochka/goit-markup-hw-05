@@ -82,17 +82,15 @@ letter-spacing: 0.03em;
 .contact-header li{
     display: flex;
     align-items: center;
+    vertical-align: middle;
     justify-content: center;
     cursor: pointer;
-    /* transition-property: fill;
-    transition-duration: 2250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
 }
 .contact-header svg {
     margin-right: 10px;
     fill: #757575;
     transition-property: fill;
-    transition-duration: 1250ms;
+    transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
  .contact-header a {
@@ -103,20 +101,15 @@ letter-spacing: 0.03em;
     color:#757575;
     text-decoration: none;
     transition-property: color;
-    transition-duration: 1250ms;
+    transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.contact-header a:hover{
+.contact-header li:hover svg {
+    fill: #2196F3;
+}
+.contact-header li:hover a {
     color: #2196F3;
 }
-.contact-header svg:hover{
-    fill: #2196F3;
-}
-
-/* .contact-header li:hover{
-   color: #2196F3;
-    fill: #2196F3;
-}  */
 
 /* CSS DO WEBSTUDIO */
 .main-message {
@@ -160,19 +153,23 @@ letter-spacing: 0.03em;
     height: 100%;
     background-color:rgba(0 0 0 / 0.2);
     transition: transform 0.25s;
+    z-index: 2;
 }
 .is-hidden {
+    visibility: hidden;
+    pointer-events: none;
     transform: translateX(-100%);
 }
 .modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 528px;
     height: 581px;
     background: #FFFFFF;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    margin: auto;
-    margin-top: 9%; /*czy jest inny sposób wycentrować */
-    position: relative;
 }
 .modal>button{
     background: #FFFFFF;
@@ -256,6 +253,7 @@ letter-spacing: 0.03em;
     width: 370px;
     height: 294px;
     position: relative;
+    
 }
 .box-img .label{
     position: absolute;
@@ -339,14 +337,15 @@ letter-spacing: 0.03em;
     justify-content: center;
     width: 40px;
     height: 40px;
+    transition-property: color, fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-media >.ellipse:hover,
 .social-media >.ellipse:focus {
     background-color: #2196F3;
     fill: #EEEEEE;
     cursor: pointer;
-    transition: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client>.container{
     display: flex;
@@ -362,14 +361,15 @@ letter-spacing: 0.03em;
     align-items: center;
     justify-content: center;
     fill: #AFB1B8;
+    transition-property: border-color, fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client>.container>.rectangle:hover,
 .client>.container>.rectangle:focus{
     border-color: #2196F3;
     cursor: pointer;
     fill:#2196F3;
-    transition: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .client h2 {
     width: 1200px;
@@ -406,14 +406,15 @@ letter-spacing: 0.03em;
     border-radius: 4px;
     padding: 6px 22px;
     border: none;
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button:hover,
 .button:focus {
     color: #FFFFFF;
     background-color: #2196F3;
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-    transition: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .container.projects {
     box-sizing: content-box;
@@ -425,13 +426,16 @@ letter-spacing: 0.03em;
     padding: 0 15px;
     gap: 30px; 
 }
+.container.projects li{
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 .container.projects li:hover {
     box-shadow: 
     0px 1px 1px rgba(0, 0, 0, 0.12), 
     0px 4px 4px rgba(0, 0, 0, 0.06), 
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-    transition: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    1px 4px 6px rgba(0, 0, 0, 0.16); 
 }
 .projects img { display: block;}
 .box {
@@ -448,7 +452,8 @@ letter-spacing: 0.03em;
     height: 100%;
     background-color: #3f51b5;
     transform: translatey(101%);
-    transition: 250ms;
+    transition-property: transform;
+    transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     background: rgba(33, 150, 243, 0.9);
 }
@@ -466,7 +471,7 @@ letter-spacing: 0.03em;
     color: rgba(255, 255, 255, 1);
 
 }
-.box:hover .overlay {
+.container.projects li:hover .overlay {
     transform: translatey(0);
   }
 .img-title {border: 1px solid #EEEEEE;}
@@ -535,11 +540,11 @@ letter-spacing: 0.03em;
     text-decoration: none;
     text-decoration-line: underline;
     color: #FFFFFF99;
+    transition: color 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mailto:hover { 
     color: #2196F3;
-    transition: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .tel {
     font-style: normal;
@@ -547,11 +552,11 @@ letter-spacing: 0.03em;
     letter-spacing: 0.03em;
     text-decoration: none;
     color: #FFFFFF99;
+    transition: color 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .tel:hover { 
     color: #2196F3;
-    transition: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .join-us p {
     color: #FFFFFF;
@@ -574,11 +579,11 @@ letter-spacing: 0.03em;
     height: 44px;
     background: rgba(255, 255, 255, 0.1);
     fill:#FFFFFF;
+    transition: background-color 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .sm-footer >.ellipse:hover,
 .sm-footer >.ellipse:focus {
     background-color: #2196F3;
     cursor: pointer;
-    transition: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
